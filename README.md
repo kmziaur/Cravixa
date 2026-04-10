@@ -1,2 +1,2 @@
-### Cravixa
+# Cravixa
 A food delivery web application.
