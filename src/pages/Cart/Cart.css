@@ -55,6 +55,9 @@
     border-radius: 4px;
     cursor: pointer;
 }
+.cart-total button:hover{
+    background-color: #e64a2e;
+}
 .cart-promocode{
     flex: 1;
 }
@@ -94,3 +97,4 @@
     }
     
 }
+

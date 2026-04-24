@@ -35,3 +35,6 @@
 .place-order .cart-total button{
     margin-top: 30px;
 }
+.place-order .cart-total button:hover{
+    background: #e64a2e;
+}   
