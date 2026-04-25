@@ -6,7 +6,7 @@ import axios from "axios";
 
 const PlaceOrder = () => {
 
-  const {getTotalCartAmount,token,food_list,cartItems,url} = useContext(StoreContext);
+  const {getTotalCartAmount,token,food_list,cartItems,url,clearCart} = useContext(StoreContext);
 
   const [data,setData] = useState({
     firstName:"",
@@ -47,6 +47,7 @@ const PlaceOrder = () => {
     });
     if(response.data.success){
       const {session_url} = response.data;
+      clearCart();
       window.location.replace(session_url);
     }else{
       alert("Failed to place order. Please try again.");

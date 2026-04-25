@@ -12,13 +12,14 @@ const Verify = () => {
     const success = searchParams.get("success");
     const orderId = searchParams.get("orderId");
 
-    const {url} = useContext(StoreContext);
+    const {url, clearCart} = useContext(StoreContext);
     const navigate = useNavigate();
 
     const verifyPayment = async ()=>{
         const response = await axios.post(url+"/api/order/verify",{success,orderId});
         if(response.data.success){
             alert("Payment successful!");
+            await clearCart();
             navigate("/myorders");
         }else{
             alert("Payment failed. Please try again.");
