@@ -37,4 +37,33 @@
 }
 .place-order .cart-total button:hover{
     background: #e64a2e;
+}
+
+@media (max-width:900px) {
+    .place-order {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .place-order-left,
+    .place-order-right {
+        max-width: 100%;
+    }
+}
+
+@media (max-width:600px) {
+    .place-order {
+        margin-top: 60px;
+        padding: 0 15px;
+    }
+    .place-order-left .title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    .place-order-left input {
+        padding: 12px;
+    }
+    .place-order-left .multi-fields {
+        flex-direction: column;
+        gap: 15px;
+    }
 }   

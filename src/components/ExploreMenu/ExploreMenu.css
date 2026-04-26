@@ -4,8 +4,11 @@
     gap: 20px;
 }
 .explore-menu h1{
-    color: #262626;
-    font-weight: 500;
+    font-weight: 700;
+    background: linear-gradient(90deg, #702222, #efb73d, #48dbfb, #e8dae6, #164f95);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 .explore-menu-text{
     max-width: 60%;
@@ -46,4 +49,37 @@
 .explore-menu-list-item .active{
     border: 4px solid tomato;
     padding: 2px;
+}
+
+@media (max-width:900px) {
+    .explore-menu h1 {
+        font-size: 28px;
+    }
+    .explore-menu-text {
+        max-width: 80%;
+    }
+    .explore-menu-list {
+        gap: 20px;
+    }
+}
+
+@media (max-width:600px) {
+    .explore-menu h1 {
+        font-size: 24px;
+    }
+    .explore-menu-text {
+        max-width: 100%;
+        font-size: 14px;
+    }
+    .explore-menu-list {
+        gap: 15px;
+        margin: 15px 0px;
+    }
+    .explore-menu-list-item img {
+        width: 60px;
+        min-width: 60px;
+    }
+    .explore-menu-list-item p {
+        font-size: 14px;
+    }
 }

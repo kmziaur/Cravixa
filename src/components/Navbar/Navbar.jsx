@@ -8,7 +8,8 @@ import { Profiler } from 'react'
 const Navbar = ({setShowLogin}) => {
 
     const [menu,setMenu] = useState("home")
-    const {getTotalCartAmount,token,setToken} = useContext(StoreContext);
+    const [showSearch, setShowSearch] = useState(false)
+    const {getTotalCartAmount,token,setToken,searchQuery,setSearchQuery} = useContext(StoreContext);
 
     const navigate = useNavigate();
 
@@ -28,7 +29,21 @@ const Navbar = ({setShowLogin}) => {
             <a href='#footer' onClick={()=>setMenu("contact-us")} className={menu ==="contact-us"?"active":""}>Contact Us</a>
         </ul>
         <div className="navbar-right">
-            <img src={assets.search_icon} alt="" />
+            {showSearch && (
+              <input
+                type="text"
+                placeholder="Search food..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="search-input"
+              />
+            )}
+            <img 
+              src={assets.search_icon} 
+              alt="" 
+              onClick={() => setShowSearch(!showSearch)}
+              className="search-icon"
+            />
             <div className="navbar-search-icon">
                 <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
                 <div className={getTotalCartAmount()===0?"":"dot"}></div>
@@ -37,7 +52,7 @@ const Navbar = ({setShowLogin}) => {
             : <div className="navbar-profile">
                 <img src={assets.profile_icon} alt="" />
                 <ul className="navbar-profile-dropdown">
-                    <li><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+                    <li onClick={() => navigate('/myorders')}><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
                     <hr />
                     <li onClick={logout}><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
                 </ul>
