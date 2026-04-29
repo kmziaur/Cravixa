@@ -1,13 +1,23 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 import { assets } from '../../assets/assets'
 import { StoreContext } from '../../context/StoreContext'
+import { Profiler } from 'react'
 
 const Navbar = ({setShowLogin}) => {
 
     const [menu,setMenu] = useState("home")
-    const {getTotalCartAmount} = useContext(StoreContext);
+    const [showSearch, setShowSearch] = useState(false)
+    const {getTotalCartAmount,token,setToken,searchQuery,setSearchQuery} = useContext(StoreContext);
+
+    const navigate = useNavigate();
+
+    const logout = () => {
+        localStorage.removeItem("token");
+        setToken("");
+        navigate("/");
+    }   
 
   return (
     <div className='navbar'>
@@ -19,12 +29,36 @@ const Navbar = ({setShowLogin}) => {
             <a href='#footer' onClick={()=>setMenu("contact-us")} className={menu ==="contact-us"?"active":""}>Contact Us</a>
         </ul>
         <div className="navbar-right">
-            <img src={assets.search_icon} alt="" />
+            {showSearch && (
+              <input
+                type="text"
+                placeholder="Search food..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="search-input"
+              />
+            )}
+            <img 
+              src={assets.search_icon} 
+              alt="" 
+              onClick={() => setShowSearch(!showSearch)}
+              className="search-icon"
+            />
             <div className="navbar-search-icon">
                 <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
                 <div className={getTotalCartAmount()===0?"":"dot"}></div>
             </div>
-            <button onClick={()=>setShowLogin(true)}>Sign In</button>
+            {!token?<button onClick={()=>setShowLogin(true)}>Sign Up</button>
+            : <div className="navbar-profile">
+                <img src={assets.profile_icon} alt="" />
+                <ul className="navbar-profile-dropdown">
+                    <li onClick={() => navigate('/myorders')}><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+                    <hr />
+                    <li onClick={logout}><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
+                </ul>
+            </div>
+            }
+            
         </div>
 
       

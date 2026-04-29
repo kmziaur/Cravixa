@@ -5,12 +5,19 @@ import { StoreContext } from "../../context/StoreContext";
 
 const FoodItem = ({ id, name, price, description, image }) => {
 
-    const {cartItems,addToCart,removeFromCart} = useContext(StoreContext);
+    const {cartItems,addToCart,removeFromCart,url} = useContext(StoreContext);
+
+    // Handle missing data gracefully
+    if (!id || !name) {
+      return null;
+    }
+
+    const imageSrc = image ? `${url}/images/${image}` : "";
 
   return (
     <div className="food-item">
       <div className="food-item-img-container">
-        <img className="food-item-image" src={image} alt="" />
+        {imageSrc && <img className="food-item-image" src={imageSrc} alt={name} />}
         {!cartItems[id]
         ? <img className="add" onClick={()=>addToCart(id)} src={assets.add_icon_white} alt=""  />
         :

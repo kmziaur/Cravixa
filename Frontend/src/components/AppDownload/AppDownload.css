@@ -4,6 +4,10 @@
     font-size: max(3vw, 20px);
     text-align: center;
     font-weight: 500;
+    background: linear-gradient(90deg, #702222, #efb73d, #6bafbe, #ee43d5, #164f95);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 .app-download-platforms{
     display: flex;
@@ -21,4 +25,20 @@
 .app-download-platforms img:hover{
     transform: scale(1.1);
     
+}
+
+@media (max-width:750px) {
+    .app-download {
+        margin-top: 60px;
+        font-size: max(5vw, 18px);
+        padding: 0 20px;
+    }
+    .app-download-platforms {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .app-download-platforms img {
+        width: max(40vw, 100px);
+    }
 }
