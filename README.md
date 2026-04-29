@@ -144,7 +144,7 @@ Database (MongoDB)
 ## Author
 
 **K.M Ziaur Rahman**
-GitHub:[kmziaur](https://github.com/kmziaur) 
+[GitHub](https://github.com/kmziaur) 
 
 
 
