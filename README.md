@@ -92,6 +92,58 @@ npm install
 npm run dev
 ```
 
+## API Endpoints
+### Authentication
+```bash
+POST /api/auth/register
+POST /api/auth/login
+```
+### Products
+```bash
+GET    /api/products
+POST   /api/products
+PUT    /api/products/:id
+DELETE /api/products/:id
+```
+### Cart
+```bash
+GET    /api/cart
+POST   /api/cart
+DELETE /api/cart/:id
+```
+### Orders
+```bash
+POST /api/order
+GET  /api/order
+```
+## Architecture Overview
+```bash
+Frontend (React)
+     ↓
+REST API (Axios)
+     ↓
+Backend (Express.js)
+     ↓
+Database (MongoDB)
+```
+## Future Improvements
+- Payment gateway integration (Stripe / SSLCommerz)
+- AI-based recommendation system
+- Advanced search and filtering
+- Admin analytics dashboard
+- Deployment to cloud (Vercel / Render / AWS)
+- Email notification system
+  
+## Performance Improvements
+- Optimized API response handling
+- Component-based frontend architecture
+- Reusable backend services
+- Secure authentication flow
+
+## Author
+K.M Ziaur Rahman
+GitHub: [kmziaur](https://github.com/kmziaur) 
+
 
 
 
