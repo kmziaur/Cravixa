@@ -50,6 +50,52 @@ https://your-live-link.com
 
 ## Project Structure
 
+```bash
+Cravixa/
+│
+│── admin/
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   |   ├── index.html
+│   ├── package.json
+│   ├── vite.config.js
+│   └── README.md
+│
+│── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── config/
+│   ├── server.js
+│   ├── package.json
+│   └── .env
+│
+│── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── hooks/
+│   │   ├── context/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── index.html
+│   ├── package.json
+│   ├── vite.config.js
+│   └── README.md
+│
+│── README.md
+```
+
+
 
 
 
