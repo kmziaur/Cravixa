@@ -4,6 +4,9 @@ Cravixa is a full-stack food delivery web application built using the MERN stack
 
 ---
 
+## Live Demo
+[Visit Website](https://cravixa.vercel.app)
+
 ## Features
 
 - User authentication (Register/Login)
